@@ -1,2 +1,11 @@
 <p>contacts works!</p>
+<body>
+    <form>
+        Name: <br><input type="text" [(ngModel)]="name" name="name" placeholder="Full Name"><br> 
+        Email: <br><input type="text" [(ngModel)]="Email" name="Email" placeholder="Email address"> <br>
+        Number: <br><input type="text" [(ngModel)]="Number" name="Number" placeholder="Phone Number"> <br>
+        <button (click)="onSave()" >Save</button>
+        <button (click)="onResetForm()">Reset Form</button>
+        </form>    
 <button (click)="openHome()">Back</button>
+</body>
