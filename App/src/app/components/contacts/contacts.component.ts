@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-contacts',
   imports: [],
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './contacts.component.css'
 })
 export class ContactsComponent {
-
+  constructor(private router: Router) {}
+  openHome()
+  {
+    this.router.navigate(['home'])
+  }
 }
