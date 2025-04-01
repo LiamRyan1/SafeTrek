@@ -14,3 +14,14 @@
     <button (click)="EditContact(contact)">Edit</button>
 </li>
 </body>
+
+<div class="modal" *ngIf="EditOnOff">
+    <div class="modal-content">
+      <h2>Edit Contact</h2>
+      <label>Name: <input [(ngModel)]="editName" /></label><br>
+      <label>Number: <input [(ngModel)]="editNumber" /></label><br>
+      <label>Email: <input [(ngModel)]="editEmail" /></label><br>
+      <button (click)="onSaveEdit()">Save</button>
+      <button (click)="onSaveEdit()">Cancel</button>
+    </div>
+  </div>

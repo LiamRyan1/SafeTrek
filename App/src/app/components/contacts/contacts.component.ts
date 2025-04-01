@@ -14,9 +14,15 @@ export class ContactsComponent {
   name:String = "";
   Number:String = "";
   Email:String = "";
- 
 
-  Contacts:any
+  editName: string = "";
+  editNumber: string = "";
+  editEmail: string = "";
+
+  EditingContact:any ;
+  EditOnOff: Boolean = false;
+
+  Contacts:any = [];
   ngOnInit(){
     this.Contacts = this.ls.getAll('contacts');
   }
@@ -30,25 +36,20 @@ export class ContactsComponent {
     {
       //create a new Contact object
       const newContact = {
-        name: this.name,
-        number: this.Number,
-        email: this.Email
-      };
-      //get previously saved contacts
-      let myContact = this.ls.getAll('contacts');
+      name: this.name,
+      number: this.Number,
+      email: this.Email
+      }
       //push new contact to array
-      myContact.push(newContact);
+      this.Contacts.push(newContact);
+      
       //store contacts as an array in local storage
-      this.ls.storeArray(myContact);
+      this.ls.storeArray(this.Contacts);
 
       //reset form
-      this.name = "";
-      this.Number = "";
-      this.Email = "";
-      
-      this.Contacts = this.ls.getAll('contacts');
+      this.onResetForm();
       this.cdRef.detectChanges();
-      console.log(myContact)
+      console.log(this.Contacts);
     }
     else{
       alert("Please fill out required information")
@@ -61,14 +62,39 @@ export class ContactsComponent {
     console.log(this.Contacts);
   }
   EditContact(contact:any){
-
+    this.editName = contact.name;
+    this.editNumber  = contact.number;
+    this.editEmail  = contact.email;
+    this.EditOnOff = true;
+    this.EditingContact= contact;
   }
   onResetForm()
   {
-    alert("onResetForm()");
     this.name = "";
     this.Number = "";
     this.Email = "";
+  }
+  onSaveEdit() {
+    if (this.editName && this.editNumber) {
+      // Update the contact object
+      this.EditingContact.name = this.editName;
+      this.EditingContact.number = this.editNumber;
+      this.EditingContact.email = this.editEmail;
+
+      // Save updated contacts back to local storage
+      this.ls.storeArray(this.Contacts);
+
+      // Close modal
+      this.EditOnOff = false;
+      this.EditingContact = null;
+    } else {
+      alert("Please fill out required information");
+    }
+  }
+
+  onCancelEdit() {
+    this.EditOnOff = false;
+    this.EditingContact = null;
   }
   
 }
