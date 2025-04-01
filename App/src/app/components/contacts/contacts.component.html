@@ -8,4 +8,9 @@
         <button (click)="onResetForm()">Reset Form</button>
         </form>    
 <button (click)="openHome()">Back</button>
+<li *ngFor="let contact of Contacts">
+    <ul>{{ contact.name }} - {{ contact.number }} - {{ contact.email }}</ul>
+    <button (click)="DeleteContact(contact)">Delete</button>
+    <button (click)="EditContact(contact)">Edit</button>
+</li>
 </body>
