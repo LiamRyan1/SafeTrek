@@ -22,7 +22,8 @@ export class LocationComponent {
   }
 
   private async initMap(): Promise<void> {
-    this.map = L.map('map').setView([0, 0], 15); // Default view
+   
+    this.map = L.map('map').setView([0, 0], 15); 
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
