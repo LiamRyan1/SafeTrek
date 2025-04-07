@@ -11,13 +11,13 @@ export class LocalStorageServiceService {
   }
   public storeArray(contacts:any[])
   {
-    this.ls.set('contacts',contacts);
+    this.ls.set("contacts",contacts);
   }
   public get(key:string){
     return this.ls.get(key);
   }
   public getAll(key:string){
-    return this.ls.get('contacts') || [];
+    return this.ls.get("contacts") || [];
   }
   public deleteContact(contact: any)
   {
@@ -25,7 +25,7 @@ export class LocalStorageServiceService {
     Contacts = Contacts.filter((c: { name: string, number: string, email: string }) =>
       c.name !== contact.name || c.number !== contact.number || c.email !== contact.email
     );
-    this.ls.set('contacts', Contacts);
+    this.ls.set("contacts", Contacts);
   }
 
  

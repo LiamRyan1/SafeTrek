@@ -24,11 +24,11 @@ export class ContactsComponent {
 
   Contacts:any = [];
   ngOnInit(){
-    this.Contacts = this.ls.getAll('contacts');
+    this.Contacts = this.ls.getAll("contacts");
   }
   openHome()
   {
-    this.router.navigate(['home'])
+    this.router.navigate(["home"])
   }
   onSave()
   {

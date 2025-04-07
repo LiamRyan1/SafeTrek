@@ -25,8 +25,8 @@ export class LocationComponent {
    
     this.map = L.map('map').setView([0, 0], 15); 
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "&copy; OpenStreetMap contributors"
     }).addTo(this.map);
 
     try {
@@ -39,7 +39,7 @@ export class LocationComponent {
   }
   openHome()
   {
-    this.router.navigate(['home'])
+    this.router.navigate(["home"])
   }
   
 }
