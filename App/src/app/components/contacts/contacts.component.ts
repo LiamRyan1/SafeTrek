@@ -11,9 +11,9 @@ import { CommonModule } from '@angular/common';
 })
 export class ContactsComponent {
   constructor(private router: Router,private ls: LocalStorageServiceService, private cdRef: ChangeDetectorRef ) {}
-  name:String = "";
-  Number:String = "";
-  Email:String = "";
+  name:string = "";
+  Number:string = "";
+  Email:string = "";
 
   editName: string = "";
   editNumber: string = "";
@@ -32,6 +32,14 @@ export class ContactsComponent {
   }
   onSave()
   {
+    if (this.Number.length !== 10 || !/^\d+$/.test(this.Number)) {
+      alert("Phone number must be exactly 10 digits.");
+      return;
+    }
+    if (this.Email && !this.Email.includes("@")) {
+      alert("Please enter a valid email address.");
+      return;
+    }
     if(this.name != "" && this.Number != "" )
     {
       //create a new Contact object
@@ -39,6 +47,15 @@ export class ContactsComponent {
       name: this.name,
       number: this.Number,
       email: this.Email
+      }
+      const duplicate = this.Contacts.some((contact:any) =>
+        contact.number === newContact.number ||
+        (newContact.email && contact.email?.toLowerCase() === newContact.email.toLowerCase())
+      );
+
+      if (duplicate) {
+        alert("Contact already exists with the same name, number, or email.");
+        return;
       }
       //push new contact to array
       this.Contacts.push(newContact);
@@ -55,12 +72,14 @@ export class ContactsComponent {
       alert("Please fill out required information")
     }
   }
+
   DeleteContact(contact:any){
     this.ls.deleteContact(contact);
     console.log("ran it");
     this.Contacts = this.ls.getAll('contacts');
     console.log(this.Contacts);
   }
+
   EditContact(contact:any){
     this.editName = contact.name;
     this.editNumber  = contact.number;
@@ -68,12 +87,14 @@ export class ContactsComponent {
     this.EditOnOff = true;
     this.EditingContact= contact;
   }
+
   onResetForm()
   {
     this.name = "";
     this.Number = "";
     this.Email = "";
   }
+
   onSaveEdit() {
     if (this.editName && this.editNumber) {
       // Update the contact object

@@ -1,6 +1,12 @@
-<p>location works!</p>
 <div class="container">
-    <h2>{{ address }}</h2>
+
+    <div class="header">
+     <span><img src="logo.png" alt="SafeTrek Logo" class="logo"></span>
+        <span class="title">Location</span>
+    </div>
+
+    <h3 class="address">{{ address }}</h3>
+
     <div id="map"></div> 
     <button (click)="openHome()">Back</button>
 </div>

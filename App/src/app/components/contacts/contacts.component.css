@@ -4,6 +4,7 @@ body {
     text-align: center;
     color: #333;
     padding: 20px;
+    min-height: 100vh;
   }
   
   form {

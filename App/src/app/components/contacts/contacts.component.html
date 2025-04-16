@@ -28,8 +28,8 @@
       </div>
     </div>
 
-    <span class="title">List of Contacts</span>
-<ul >
+    <span class="title"  *ngIf="Contacts?.length > 0">List of Contacts</span>
+<ul *ngIf="Contacts?.length > 0">
     <li *ngFor="let contact of Contacts">
       {{ contact.name }} - {{ contact.number }} - {{ contact.email }}
     <br>
