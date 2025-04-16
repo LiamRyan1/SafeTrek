@@ -10,31 +10,38 @@ import * as L from 'leaflet';
 })
 export class LocationComponent {
   constructor(private router: Router,private locationService: LocationService) {}
-  map: L.Map | undefined;  
-  userMarker: L.Marker | undefined; 
+  map: L.Map | undefined;  //instance of map
+  userMarker: L.Marker | undefined;  //instance of location
   address: string = "Fetching location...";
 
 
   ngAfterViewInit(): void {
-    if (!this.map) {
+    if (!this.map) { //initialise map if it hasnt been created
       this.initMap();
     }
   }
 
   private async initMap(): Promise<void> {
-   
+   //set map to zoom 15
     this.map = L.map('map').setView([0, 0], 15); 
 
+      //add openstreetmap tiles to layer
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "&copy; OpenStreetMap contributors"
     }).addTo(this.map);
 
     try {
+      //get users corordinates
       const { latitude, longitude } = await this.locationService.getUserLocation();
+      //create marker and set location on map
+      const marker = L.marker([latitude, longitude]);
       this.map.setView([latitude, longitude], 15);
+      marker.addTo(this.map);
+
+      //fetch the address to display as title
       this.address = await this.locationService.getAddress(latitude, longitude);
     } catch (error) {
-      this.address = error as string;
+      this.address =  String(error); 
     }
   }
   openHome()

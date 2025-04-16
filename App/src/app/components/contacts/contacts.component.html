@@ -1,27 +1,41 @@
-<p>contacts works!</p>
 <body>
-    <form>
-        Name: <br><input type="text" [(ngModel)]="name" name="name" placeholder="Full Name"><br> 
-        Email: <br><input type="text" [(ngModel)]="Email" name="Email" placeholder="Email address"> <br>
-        Number: <br><input type="text" [(ngModel)]="Number" name="Number" placeholder="Phone Number"> <br>
-        <button (click)="onSave()" >Save</button>
-        <button (click)="onResetForm()">Reset Form</button>
-        </form>    
-<button (click)="openHome()">Back</button>
-<li *ngFor="let contact of Contacts">
-    <ul>{{ contact.name }} - {{ contact.number }} - {{ contact.email }}</ul>
+  <div class="header">
+    <span><img src="logo.png" alt="SafeTrek Logo" class="logo"></span>
+    <span class="title">Contacts</span>
+  
+  </div>
+
+   <form>
+      <label>Name:</label><br>
+      <input type="text" [(ngModel)]="name" name="name" placeholder="Full Name"><br> 
+      <label>Email:</label><br>
+      <input type="text" [(ngModel)]="Email" name="Email" placeholder="Email address"> <br>
+      <label>Number:</label><br>
+      <input type="text" [(ngModel)]="Number" name="Number" placeholder="Phone Number"> <br>
+
+      <button (click)="onSave()" >Save</button>
+      <button (click)="onResetForm()">Reset Form</button>
+   </form>
+    
+    <div class="modal" *ngIf="EditOnOff">
+      <div class="modal-content">
+        <h2>Edit Contact</h2>
+        <label>Name: <input [(ngModel)]="editName" /></label><br>
+        <label>Number: <input [(ngModel)]="editNumber" /></label><br>
+        <label>Email: <input [(ngModel)]="editEmail" /></label><br>
+        <button (click)="onSaveEdit()">Save</button>
+        <button (click)=" onCancelEdit()">Cancel</button>
+      </div>
+    </div>
+
+    <span class="title">List of Contacts</span>
+<ul >
+    <li *ngFor="let contact of Contacts">
+      {{ contact.name }} - {{ contact.number }} - {{ contact.email }}
+    <br>
     <button (click)="DeleteContact(contact)">Delete</button>
     <button (click)="EditContact(contact)">Edit</button>
-</li>
+    </li>
+</ul>
+<button (click)="openHome()">Back</button>
 </body>
-
-<div class="modal" *ngIf="EditOnOff">
-    <div class="modal-content">
-      <h2>Edit Contact</h2>
-      <label>Name: <input [(ngModel)]="editName" /></label><br>
-      <label>Number: <input [(ngModel)]="editNumber" /></label><br>
-      <label>Email: <input [(ngModel)]="editEmail" /></label><br>
-      <button (click)="onSaveEdit()">Save</button>
-      <button (click)="onSaveEdit()">Cancel</button>
-    </div>
-  </div>

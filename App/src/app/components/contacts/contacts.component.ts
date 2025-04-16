@@ -96,5 +96,6 @@ export class ContactsComponent {
     this.EditOnOff = false;
     this.EditingContact = null;
   }
-  
+
 }
+

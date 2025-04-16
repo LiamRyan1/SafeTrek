@@ -1,8 +1,17 @@
-<p>home works!</p>
-<nav>
-    <button (click)="openLocation()">Location</button>
-    <br>
-    <button (click)="openContacts()">Contacts</button>
-    <br>
-</nav>
-<button (click)="SOS()">SOS</button>
+<div class="home-container">
+    <div class="header">
+      <img src="logo.png" alt="SafeTrek Logo" class="logo">
+      <span class="title">SafeTrek</span>
+      
+    </div>
+  
+    <div class="button-container">
+      <button class="sos-button" (click)="SOS()">SOS</button>
+      <div *ngIf="showEmailButton">
+        <button class="sos-button" (click)="openEmail()">Send Email</button>
+      </div>
+      <button class="location-button" (click)="openLocation()">Location</button>
+      <button class="contacts-button" (click)="openContacts()">Contacts</button>
+    </div>
+  </div>
+  

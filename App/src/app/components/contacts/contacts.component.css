@@ -1,0 +1,99 @@
+body {
+    background: linear-gradient(to bottom, #d2bdfc 20%, #c3d7ff, #e6f6ff); 
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    color: #333;
+    padding: 20px;
+  }
+  
+  form {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+    
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: #f5f5ff;
+    font-size: 1em;
+    box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);
+  }
+  
+  button {
+    background: linear-gradient(to top, #d2bdfc, #b3e0ff);
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  }
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(212, 198, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: #ffffffcc;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  
+  ul {
+    list-style: none;
+    align-self: center;
+    margin: 10px auto;
+    background: #f0f5ff;
+    padding: 10px;
+    border-radius: 15px;
+    max-width: 400px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  }
+  
+
+  button:last-of-type {
+    background: #f9c8dd;
+    color: #333;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .title {
+    font-size: 1.8em;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 40px;
+    color: white;
+  }
