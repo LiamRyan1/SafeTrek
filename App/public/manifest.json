@@ -1,0 +1,17 @@
+{
+    "lang": "en-US",
+    "dir": "auto", 
+    "name": "SafeTrek",
+    "short_name": "SafeTrek",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "orientation": "any",
+    "description": "A emergency msging app for close friends",
+    "background_color": "#fff",
+    "icons": [
+    {
+        "src": "logo.png",
+        "type": "image/png",
+        "sizes": "1000x1000"
+    }]
+}
